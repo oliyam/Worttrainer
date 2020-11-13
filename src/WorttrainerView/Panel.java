@@ -60,7 +60,6 @@ public class Panel extends JPanel{
 	    grid_top.add(input);
 	    add(grid_top, BorderLayout.PAGE_START);
 
-	    image.setImage("file:///C:/Users/oli/Pictures/cat.PNG");
 	    add(image, BorderLayout.CENTER);
 	    
 	}
