@@ -1,22 +1,20 @@
 package WorttrainerController;
 
+/**
+ * Worttrainer Kontrollklasse
+ * 
+ * @author oli
+ */
+
 import java.awt.event.ActionEvent;
-
 import javax.swing.AbstractAction;
-
 import WorttrainerModel.WortEintrag;
 import WorttrainerModel.WortListe;
 import WorttrainerModel.WortTrainer;
 import WorttrainerModel.WorttrainerException;
 import WorttrainerView.*;
 
-/**
- * Testklasse für das WortTrainer-Model
- * 
- * @author oli
- *
- */
-
+@SuppressWarnings("serial")
 public class Controller {
 	
 	/**
@@ -74,27 +72,25 @@ public class Controller {
 	}
 	
 	/**
-	 * main-Methode
-	 * 
-	 * @param args
+	 * Action Listener
 	 */
-	public static void main(String[] args) {
-	    new Controller();
-	}
-	
-	private AbstractAction action = new AbstractAction(){
-	    private static final long serialVersionUID = 1L;
-
+	private AbstractAction action = new AbstractAction() {
 	    @Override
-	     public void actionPerformed(ActionEvent e)
-	     {
-	         System.out.println(e);
-	   
+	     public void actionPerformed(ActionEvent e) {
+	            if(e.getActionCommand().contentEquals(""))
+	        	 panel.setTotalWords(420);
 	     }
-	};
+	};	
+	private Frame frame;
+	private Panel panel;
 	 
+	/**
+	 * Konstruktor
+	 */
 	public Controller() {
-	    new Frame(action);
+	    frame = new Frame(action);
+	    panel = frame.getPanel();
+	    
 	    WortEintrag eintrag;
 	    WortListe liste;
 	    String url="https://de.y8.com/games/slope";
@@ -114,4 +110,12 @@ public class Controller {
 	    }catch(WorttrainerException e) {e.printStackTrace();}
 	}
 	
+	/**
+	 * Main Methode
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+	    new Controller();
+	}
 }

@@ -13,19 +13,24 @@ import java.awt.Dimension;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class Frame extends JFrame{
 
-	private static final long serialVersionUID = 1L;
+	private Panel panel;
 	
-	public Frame(AbstractAction ctrl){
+	public Frame(AbstractAction action) {
 		super("Worttrainer");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(450,450);
 		setResizable(true);
-		setMinimumSize(new Dimension(0,450));
-		MainLayoutPanel pp = new MainLayoutPanel(ctrl);
-		setContentPane(pp);
+		setMinimumSize(new Dimension(450,450));
+		panel = new Panel(action);
+		setContentPane(panel);
 		getContentPane().setBackground(new Color(255,255,255));
 		setVisible(true);
+	}
+	
+	public Panel getPanel() {
+	    return panel;
 	}
 }
