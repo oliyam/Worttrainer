@@ -23,6 +23,10 @@ public class WortTrainer {
 		this.currentWord=liste.getEintrag(1);
 	}
 	
+	public WortListe getListe() {
+	    return liste;
+	}
+	
 	/**
 	 * Gibt einen zufälligen WortEintrag aus der Liste aus
 	 * 

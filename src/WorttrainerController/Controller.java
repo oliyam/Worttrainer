@@ -30,7 +30,8 @@ public class Controller {
 	};	
 	private Frame frame;
 	private Panel panel;
-	 
+	private WortTrainer trainer;
+	
 	/**
 	 * Konstruktor
 	 */
@@ -38,6 +39,7 @@ public class Controller {
 	    frame = new Frame(action);
 	    panel = frame.getPanel();
 	    
+	    trainer = new WortTrainer(list);
 	   
 	}
 	
